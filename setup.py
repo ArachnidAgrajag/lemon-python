@@ -26,14 +26,11 @@ setup(
     name="lemon_hao_orlin",
     version=__version__,
     author="Sai Krishna I",
-    author_email="saikrishna31120@gmail.com",
-    url="https://github.com/pybind/python_example",
-    description="A test project using pybind11",
+    url="https://github.com/ArachnidAgrajag/lemon-python",
+    description="A port of Lemon (https://lemon.cs.elte.hu/trac/lemon) using pybind11",
     long_description="",
     ext_modules=ext_modules,
     extras_require={"test": "pytest"},
-    # Currently, build_ext only provides an optional "highest supported C++
-    # level" feature, but in the future it may provide more features.
     cmdclass={"build_ext": build_ext},
     zip_safe=False,
     python_requires=">=3.7",
