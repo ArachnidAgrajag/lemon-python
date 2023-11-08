@@ -23,10 +23,10 @@
 #include <list>
 #include <limits>
 
-#include <lemon/maps.h>
-#include <lemon/core.h>
-#include <lemon/tolerance.h>
-#include <pybind11/pybind11.h>
+#include "lemon/maps.h"
+#include "lemon/core.h"
+#include "lemon/tolerance.h"
+
 
 /// \file
 /// \ingroup min_cut
@@ -1013,30 +1013,6 @@ namespace lemon {
 
 } //namespace lemon
 
-namespace py = pybind11;
-
-//const Digraph& graph, const CapacityMap& capacity, const Tolerance& tolerance = Tolerance()
-PYBIND11_MODULE(lemon_hao_orlin, m) {
-    m.doc() = R"pbdoc(
-        Hao orlin algorithm for unrestricted minimum cut
-
-        .. currentmodule:: lemon_hao_orlin
-
-        .. autosummary::
-           :toctree: _generate
-          
-          class HaoOrlin 
-
-           
-    )pbdoc";
-
-    py::class_<HaoOrlin>(m, "HaoOrlin")
-        .def(py::init<const lemon::Digraph &, const lemon::CapacityMap &, const lemon::Tolerance &>(),py::arg("tolerance")=lemon::Tolerance())
-        .def("init", &HaoOrlin::init)
-        .def("calculateOut", &HaoOrlin::calculateOut);
-        .def("minCutValue", &HaoOrlin::minCutValue);
-        .def("minCutMap", &HaoOrlin::minCutMap);
-}
 
 
 #endif //LEMON_HAO_ORLIN_H
